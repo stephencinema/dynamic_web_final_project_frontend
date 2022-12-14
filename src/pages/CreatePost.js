@@ -27,6 +27,7 @@ function CreatePostPage({ app, isLoading, isLoggedIn, setIsLoggedIn, setUserInfo
         console.error("error adding document: ", e);
       }
     },
+    // eslint-disable-next-line
     [app, userInformation]
   );
 

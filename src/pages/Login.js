@@ -52,9 +52,9 @@ function LoginPage({ isLoggedIn, setIsLoggedIn, setUserInformation }) {
         <LoginForm loginUser={loginUser} />
         <p>{errors}</p>
         <p className="BoldLoginText">Don't have an account?</p>
-        <a className="BoldLoginText">
+        <button className="BoldLoginText">
           <Link to="/register">Register</Link>
-        </a>
+        </button>
       </div>
     </>
   );

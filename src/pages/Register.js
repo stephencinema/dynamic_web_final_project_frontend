@@ -61,10 +61,10 @@ function RegisterPage({ isLoggedIn, setIsLoggedIn, setUserInformation }) {
       <div className="LoginWrapper">
         <CreateUserForm signUpUser={signUpUser} />
         <p>{errors}</p>
-        <a className="BoldLoginText">Already have an account?</a>
-        <a className="BoldLoginText">
+        <p className="BoldLoginText">Already have an account?</p>
+        <button className="BoldLoginText">
           <Link to="/login">Login</Link>
-        </a>
+        </button>
       </div>
     </>
   );
