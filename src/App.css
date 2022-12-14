@@ -9,6 +9,12 @@ h2 {
   color: white;
 }
 
+.PageWrapper {
+  margin: 0 auto;
+  max-width: 1080px;
+  padding: 25px;
+}
+
 .LoginLogo {
   font-size: 48px;
   font-style: italic;
@@ -34,7 +40,6 @@ h2 {
   padding: 25px;
   position: relative;
   top: 150px;
-  
 }
 
 .FormElement {
@@ -76,7 +81,12 @@ h2 {
   font-size: 12px;
   font-weight: 800;
   padding: 8px 4px;
-  width: 200px;
+  width: 100px;
+}
+
+.Button a {
+  color: black;
+  text-decoration: none;
 }
 
 .BoldLoginText {
@@ -88,6 +98,55 @@ h2 {
 
 .BoldLoginText a {
   color: gray;
+}
+
+.Header {
+  border-bottom: 1px solid gray;
+  display: flex;
+  padding: 20px 25px;
+}
+
+.Header .Logo {
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: bolder;
+  line-height: 16px;
+  margin: auto;
+}
+
+nav {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
+  max-width: 1080px;
+  width: 100%;
+}
+
+nav p {
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0 40px 0 0;
+}
+
+nav p a {
+  text-decoration: none;
+}
+
+.TextPostWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.TextPost {
+  border: 1px solid gray;
+  margin-bottom: 40px;
+  max-width: 1080px;
+  width: 100%;
 }
 
 input[type="email"] {

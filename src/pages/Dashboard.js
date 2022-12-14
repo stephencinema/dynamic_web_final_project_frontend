@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import Header from "../components/Header";
+import TextPost from "../components/TextPost";
 
-function DashboardPage({ isLoading, isLoggedIn, setIsLoggedIn, setUserInformation,}) {
+function DashboardPage({ isLoading, isLoggedIn, setIsLoggedIn, setUserInformation }) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,7 +15,12 @@ function DashboardPage({ isLoading, isLoggedIn, setIsLoggedIn, setUserInformatio
     <>
       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUserInformation={setUserInformation} />
       <div className="PageWrapper">
-        <p>Dashboard</p>
+        <div className="TextPostWrapper">
+          <TextPost />
+          <TextPost />
+          <TextPost />
+          <TextPost />
+        </div>
       </div>
     </>
   );
