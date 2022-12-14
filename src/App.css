@@ -112,6 +112,11 @@ h2 {
   font-weight: bolder;
   line-height: 16px;
   margin: auto;
+  text-decoration: none;
+}
+
+.Header .Logo a {
+  text-decoration: none;
 }
 
 nav {
@@ -146,7 +151,13 @@ nav p a {
   border: 1px solid gray;
   margin-bottom: 40px;
   max-width: 1080px;
+  min-height: 200px;
   width: 100%;
+}
+
+.TextPost p {
+  margin-left: 30px;
+  margin-top: 30px;
 }
 
 input[type="email"] {

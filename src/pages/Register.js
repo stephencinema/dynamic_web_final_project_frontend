@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import CreateUserForm from "../components/CreateUserForm";
 import { Link } from "react-router-dom";
 
@@ -18,27 +18,37 @@ function RegisterPage({ isLoggedIn, setIsLoggedIn, setUserInformation }) {
 
       const email = e.currentTarget.email.value;
       const password = e.currentTarget.password.value;
-
-      console.log({ email, password });
-
+      const name = e.currentTarget.name.value;
+  
       const auth = getAuth();
 
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
           setIsLoggedIn(true);
-          setUserInformation({
-            email: user.email,
-            displayName: user.displayName,
-            uid: user.uid,
-            accessToken: user.accessToken,
-          });
           setErrors();
+
+          updateProfile(user, { displayName: name })
+            .then(() => {
+              setUserInformation({
+                email: user.email,
+                displayName: name,
+                uid: user.uid,
+                accessToken: user.accessToken,
+              });
+            })
+            .catch((err) => {
+              const errorCode = err.code;
+              const errorMessage = err.message;
+              console.warn({ err, errorCode, errorMessage });
+              setErrors(errorMessage);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.warn({ error, errorCode, errorMessage });
+          setErrors(errorMessage);
         });
     },
     [setErrors, setIsLoggedIn, setUserInformation]

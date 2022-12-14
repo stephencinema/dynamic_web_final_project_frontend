@@ -28,8 +28,8 @@ function App() {
   // ensure app is initialized when it is ready to be
   useEffect(() => {
     // initialize firebase
-    initializeApp(firebaseConfig);
-    setAppInitialized(true);
+    const app = initializeApp(firebaseConfig);
+    setAppInitialized(app);
   }, []);
   // check to see if user is logged in
   // user loads page, check their status
@@ -58,6 +58,7 @@ function App() {
       path: "/",
       element: (
         <DashboardPage
+          app={appInitialized}
           isLoading={isLoading}
           isLoggedIn={isLoggedIn}
           userInformation={userInformation}
@@ -94,6 +95,7 @@ function App() {
       path: "/create",
       element: (
         <CreatePostPage
+          app={initializeApp}
           isLoading={isLoading}
           isLoggedIn={isLoggedIn}
           userInformation={userInformation}
@@ -116,13 +118,7 @@ function App() {
     },
     {
       path: "/login",
-      element: (
-        <LoginPage
-          isLoggedIn={isLoggedIn}
-          setIsLoggedIn={setIsLoggedIn}
-          setUserInformation={setUserInformation}
-        />
-      ),
+      element: <LoginPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUserInformation={setUserInformation} />,
     },
   ]);
 

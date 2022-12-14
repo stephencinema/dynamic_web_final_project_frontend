@@ -17,7 +17,7 @@ function Header({ setIsLoggedIn, setUserInformation }) {
 
   return (
     <div className="Header">
-      <h1 className="Logo">The Box Office</h1>
+      <h1 className="Logo"><Link to="/">The Box Office</Link></h1>
       <nav>
         <p>
           <Link to="/user/0">Profile</Link>
@@ -29,7 +29,7 @@ function Header({ setIsLoggedIn, setUserInformation }) {
         <p onClick={() => logout()}>Log Out</p>
 
         <button className="Button">
-          <a><Link to="/create">New Post</Link></a>
+          <Link to="/create">New Post</Link>
         </button>
       </nav>
     </div>
